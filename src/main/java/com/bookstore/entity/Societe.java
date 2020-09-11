@@ -31,8 +31,22 @@ public class Societe {
     private String email;
     private String etatDemande;
     private int nbEffectifMobilise;
+    private String motDePasse;
+    private String token;
     
-    @OneToMany(mappedBy = "societe")
+    public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+	@OneToMany(mappedBy = "societe")
     
     private List<Employe> listeEmployes;
     public Societe(String rasionSociale) {

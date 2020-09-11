@@ -29,5 +29,18 @@ public class AdminService implements IAdminService {
 	}
 		return admin;
 	}
+	@Override
+	public Administrateur getByUserName(String email) {
+		Administrateur admin=null;
+		try{admin = em.createQuery("select u from Administrateur u where u.login='" + email+"'", Administrateur.class)
+				.getSingleResult();
+
+	} catch (javax.persistence.PersistenceException k) {
+		System.out.println("exceptionnnnn");
+		return null;
+		
+	}
+		return admin;
+	}
 
 }
